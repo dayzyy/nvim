@@ -22,3 +22,5 @@ local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', telescope.find_files, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fw', telescope.live_grep, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
