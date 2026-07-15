@@ -5,7 +5,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
-		local lsp_servers = {'pyright', 'clangd'}
+		local lsp_servers = {'ty', 'clangd'}
 
 		require("mason").setup()
 		-- require("mason-lspconfig").setup({
@@ -29,16 +29,21 @@ return {
 			map("n", "K", vim.lsp.buf.hover, opts)
 		end
 
-		vim.lsp.config('pyright', {
+		-- vim.lsp.config('pyright', {
+		-- 	on_attach=on_attach,
+		-- 	capabilities=capabilities,
+		-- 	settings={
+		-- 		python={
+		-- 			analysis = {
+		-- 				typeCheckingMode="strict",
+		-- 			}
+		-- 		}
+		-- 	},
+		-- })
+
+		vim.lsp.config('ty', {
 			on_attach=on_attach,
 			capabilities=capabilities,
-			settings={
-				python={
-					analysis = {
-						typeCheckingMode="strict",
-					}
-				}
-			},
 		})
 
 		vim.lsp.config('clangd', {
@@ -46,7 +51,7 @@ return {
 			capabilities=capabilities,
 		})
 
-		vim.lsp.enable('pyright')
+		vim.lsp.enable('ty')
 		vim.lsp.enable('clangd')
 	end,
 }
